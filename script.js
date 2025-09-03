@@ -22,7 +22,11 @@ function createGrid(side) {
   const squares = document.querySelectorAll(".col");
   squares.forEach((square) => {
     square.addEventListener("mouseover", (e) => {
-      e.target.style.background = "#ee0000ff";
+      if (e.shiftKey) e.target.style.background = "#ee0000ff";
+      if (e.ctrlKey) e.target.style.background = "#00137eff";
+      if (e.altKey) e.target.style.background = "#ffe608ff";
+
+      console.log(e.detail);
     });
   });
 }
@@ -30,7 +34,13 @@ function createGrid(side) {
 const button = document.querySelector("button");
 
 button.addEventListener("click", () => {
-  const side = prompt("Enter the number of squares per a line you want.");
+  let side = 0;
+  do {
+    side = prompt(
+      "Enter the number of squares per a line you want in 1 to 100."
+    );
+  } while (side < 1 || 100 < side);
+
   rows.forEach((row) => row.remove());
   createGrid(side);
 });
