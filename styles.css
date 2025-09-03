@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  border: solid darkcyan;
+  border-width: 2px;
+  border-collapse: separate;
+  flex-basis: 154px;
+  min-width: 604px;
+  max-height: 154px;
+  display: flex;
+}
+
+.col {
+  border: solid black;
+  border-width: 2px;
+  flex-basis: 150px;
+  max-width: 150px;
+}
