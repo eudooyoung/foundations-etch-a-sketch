@@ -21,12 +21,30 @@ function createGrid(side) {
 
   const squares = document.querySelectorAll(".col");
   squares.forEach((square) => {
+    let count = 0.1;
     square.addEventListener("mouseover", (e) => {
       if (e.shiftKey) e.target.style.background = "#ee0000ff";
       if (e.ctrlKey) e.target.style.background = "#00137eff";
       if (e.altKey) e.target.style.background = "#ffe608ff";
 
-      console.log(e.detail);
+      if (e.shiftKey && e.altKey) e.target.style.background = "#ffffff";
+      if (e.shiftKey && e.ctrlKey) e.target.style.background = "#000000";
+    });
+
+    square.addEventListener("mousedown", (e) => {
+      switch (e.button) {
+        case 0:
+          count = count <= 0 || count > 0.9 ? count : count + 0.1;
+          break;
+        case 1:
+          count -= 0.1;
+          break;
+        default:
+          break;
+      }
+
+      square.style.opacity = count;
+      // console.log(square.style.opacity);
     });
   });
 }
