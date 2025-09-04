@@ -43,7 +43,6 @@ function createGrid(side) {
         default:
           break;
       }
-      console.log(count);
 
       square.style.opacity = count / 10;
     });
